@@ -1,0 +1,35 @@
+"Comandos del grupo de Ion,Igor y Iñaki"
+"Configuración ip"
+<Netsh interface ip set ("nombre de la interfaz") static (dirección de ip) (mascara de red) gateway=(dirección de gateway)
+"Ver configuración de NTFS"
+<fsutil fsinfo ntfsinfo c:\>
+"Para saber la clave del producto"
+<slmgr -dli>
+"Comando para ver los Usuarios"
+<net user>
+"Comando para ver la SID"
+<wmic useraccount get name, sid>
+"Para poner la dirección dns"
+<Set-DnsClientServerAddress-InterfaceIndex 5-ServerAddresses (ip del DNS)
+
+"Desactivar el protocolo TCP/IP6"
+< Disable-NetAdapterBinding -InterfaceAlias ”Ethernet” -ComponentID ms_tcpip6>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
