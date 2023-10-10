@@ -1,1 +1,33 @@
-
+Replica
+(PowerShell)
+-----------------------
+"Para importar el administrador de servidor"
+<Import-Module ServerManager>
+----------------------
+"Para instalar las caracteristicas de los servicios de directorio"
+<Add-WindowsFeature AD-Domain-Services>
+"Importar el modulo para el AD DS"
+<Import-Module ADDSDeploymet>
+"Comando para crear el controlador de dominio"
+<Install-ADDSDomainController>
+"Comando para ver los dominios desde los usuarios administrador"
+<netdom query dc>
+(PoweShell)
+-----------------------
+"Para comprobar la replicación de datos"
+<dsquery user -name *>
+------------------------
+"Para ver información de cuando se crearon la replica"
+<repadmin /replsum * /bysrc /bydest /sort:delta
+"Para comprobar el funcionamiento del servidor de respaldo"
+<nltest /DSGetDC:(nombre del servidor)>
+"Para ver en que servidor estamos conectados"
+<echo %logonserver%>
+(PowerShell)
+-------------------------
+"Para ver el proceso de la replicación"
+<repadmin /showrepl>
+"Para ver los errores en la ultima replicación"
+<repadmin /ReplSummary>
+"Para hacer otro test de comprovación para ver otros detalles"
+<dcdiag /test:Replications>
