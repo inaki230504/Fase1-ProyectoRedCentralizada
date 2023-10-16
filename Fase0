@@ -13,13 +13,14 @@
 <net user (nombre de usuario) /delete>
 # "Comando para dar permisos de administrador a un usuario ya existente"
 <net localgroup Administradores (nombre del usuario existente) /add>
+# "Comando para cambiar la contraseña de un usuario"
+<user (nombre de cuenta) (contraseña)>
 # "Comando para ver la SID"
 <wmic useraccount get name, sid>
 # "Para poner la dirección dns"
 <Set-DnsClientServerAddress-InterfaceIndex 5-ServerAddresses (ip del DNS)
 # "Desactivar el protocolo TCP/IP6"
 < Disable-NetAdapterBinding -InterfaceAlias ”Ethernet” -ComponentID ms_tcpip6>
-
 
 
 
