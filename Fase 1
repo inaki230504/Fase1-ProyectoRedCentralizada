@@ -32,3 +32,6 @@ Replica
 # "Para hacer otro test de comprovación para ver otros detalles"
 <dcdiag /test:Replications>
 -------------------------
+# "Comando para comprobar la configuración de la replica"
+<DCDIAG /TEST:Replications>
+
