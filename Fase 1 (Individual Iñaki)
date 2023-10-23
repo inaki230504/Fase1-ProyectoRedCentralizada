@@ -1,0 +1,21 @@
+# "Comando para ver los Usuarios"
+<net user>
+# "Comando para crear usuario sin privilegios de administrador"
+<net user (nombre de usuario) /add>
+# "Comando para borrar un usuario"
+<net user (nombre de usuario) /delete>
+# "Comando para dar permisos de administrador a un usuario ya existente"
+<net localgroup Administradores (nombre del usuario existente) /add>
+# "Comando para cambiar la contraseña de un usuario"
+<user (nombre de cuenta) (contraseña)>
+# "Para ver en que servidor estamos conectados"
+<echo %logonserver%>
+# "Para comprobar el Subdominio"
+<ntlookup (dirección del dominio)>
+PoweShell
+---------------------
+# "Para ver los usuarios locales"
+<Get-LocalUser>
+# "Renombrar a un usuario"
+<Rename-LocalUser -Name "Nombre" -Newname "Nuevo Nombre">
+---------------------
