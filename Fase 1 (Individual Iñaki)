@@ -18,4 +18,32 @@ PoweShell
 <Get-LocalUser>
 # "Renombrar a un usuario"
 <Rename-LocalUser -Name "Nombre" -Newname "Nuevo Nombre">
+# "Para instalar un ADDSForest"
+Import-Module ADDSDeplyment
+Install-ADDSForest `
+-CreateDnsDelegation:$false `
+-DatabasePath "C:\Windows\NTDS" `     1? 
+-DomainMode "(Win2008, Win2008R2, Win2012, Win2012R2, WinThreshold, Default) `   2?
+-DomainName "(Nombre del dominio)" `
+-DomainNetbiosName "(Dirección de Dominio)" `    3?
+-ForestMode "(Win2008, Win2008R2, Win2012, Win2012R2, WinThreshold, Default)" ` 2?   
+-InstallDns: ($true o $false) `
+-LogPath "C: \Windows\NTDS" `    4?
+-NoRebootOnCompletion:($true o $false) `
+-SysvolPath "C:\Windows\SYSVOL" `    5?
+-Force:($false o $true)
 ---------------------
+Aclaraciones
+1?_"Pondremos la ruta donde estara la base de datos" `
+2?_"Se refiere a las versiones de equipos que se pueden conectar" Nota:WinTrheshold,son para equipos de 2016 o superior.
+3?_"De ponerlo manual usa las credenciales del nombre de Dominio"
+4?_"Donde se almacenara el usuario como administrador de dominio"
+5?_"Donde se guardara al archivo de configuraciones SYSVOL"
+
+PowerShell
+---------------------
+# "Para crear un Subdominio"
+Import-Module ADDSDeployment
+Install-ADDSDomain `
+-NoGlobalCatalog:($false o $true)
+-CreateDnsDelegation:$True
