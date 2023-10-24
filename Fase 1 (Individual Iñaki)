@@ -46,4 +46,17 @@ PowerShell
 Import-Module ADDSDeployment
 Install-ADDSDomain `
 -NoGlobalCatalog:($false o $true)
--CreateDnsDelegation:$True
+-CreateDnsDelegation:($false o $true)
+-Credential (Get-Credential) `
+-DatabasePath "C:\Windows\NTDS" `
+-DomainMode "WinThreshold" `
+-DomainType "ChildDomain" `
+-InstallDns:$true `
+-LogPath "C:\Windows\NTDS" `
+-NewDomainName "as-smc-comp" `
+-NewDomainNetbiosName "AS-SMC-COMP" `
+-NoRebootOnCompletion:(&true o &false)
+-SiteName "Default-First-Site-Name" `
+-SysvolPath "C:\Windwos\SYSVOL" `
+-Force:($false o $true)
+--------------------
